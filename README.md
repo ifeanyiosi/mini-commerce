@@ -1,36 +1,180 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🛍️ Mini-Commerce – E-commerce Prototype
 
-## Getting Started
+## Overview
 
-First, run the development server:
+**Mini-Commerce** is a simple, fully client-side e-commerce prototype built with modern web technologies including **Next.js**, **React**, **TypeScript**, and **Tailwind CSS**. It demonstrates the core features of an online store, including:
+
+- ✅ **Product Catalog** – Browse 8+ products with images, titles, and prices  
+- ✅ **Product Detail Pages** – View in-depth product information  
+- ✅ **Shopping Cart** – Add/remove items, update quantities  
+- ✅ **Checkout Flow** – Simulated checkout with order confirmation  
+- ✅ **Persistent State** – Cart state saved using `localStorage`  
+- ✅ **Responsive Design** – Optimized for mobile, tablet, and desktop  
+
+The app was built with a strong focus on accessibility, responsiveness, TypeScript strictness, and modern development practices.
+
+---
+
+## 🧠 Design Approach
+
+### Layout & UX
+
+- Clean, minimalist interface centered around products  
+- Responsive grid layout for catalog browsing  
+- Two-column product pages (stacked layout on mobile)  
+- Progressive, step-by-step checkout flow  
+- Clear visual hierarchy and consistent spacing  
+
+### Color Scheme
+
+- Accessible and elegant palette using **OKLCH** color space  
+- Light and dark mode support via custom theme variables  
+- **Primary**: Slate blue tones  
+- **Accent**: Sage green variants  
+- **Alerts/Destructive**: Deep burgundy red  
+- Neutral background layers ensure readability and contrast  
+
+### Responsive Behavior
+
+- Mobile-first layout using Tailwind’s responsive utilities  
+- Flexible grids, scalable typography, and adaptive spacing  
+- Collapsible menus and touch-friendly UI elements  
+
+---
+
+## 🛠️ Tools & Technologies
+
+### Core Stack
+
+- **Next.js** – Routing, performance, and full-stack features  
+- **React** – Declarative UI components  
+- **TypeScript** – Strict types, no `any`, maximum safety  
+- **Tailwind CSS** – Utility-first styling with custom themes  
+- **shadcn/ui** – Prebuilt components for faster development  
+
+### State Management
+
+- **Zustand** – Lightweight global store for cart state  
+- **localStorage** – Persists cart across sessions  
+- **Selectors** – Derive cart totals and quantities efficiently  
+
+### Data Layer
+
+- **React Query** – Handles data fetching, caching, and revalidation  
+- **Mock API** – Simulated backend with static JSON data  
+- **localStorage Fallback** – Seeds product data if API fails  
+
+---
+
+## ✅ Testing
+
+- **Jest** – Test runner for unit and logic tests  
+- **React Testing Library** – Simulates real user interactions  
+- **Coverage Focus**:  
+  - Key components like `ProductCard`  
+  - Critical user flows such as cart actions and checkout  
+
+---
+
+## 💡 Development Quality
+
+- **ESLint** & **Prettier** – Enforce consistent, clean code  
+- **Strict TypeScript** – Max type safety, no `any`  
+- **CI-ready** – GitHub Actions for automated linting and testing  
+
+---
+
+## 🔍 SEO & Metadata
+
+- **Semantic HTML** – Accessible and structured markup  
+- **Meta Tags** – Titles, descriptions, and viewport settings  
+- **Open Graph Tags** – Social sharing previews  
+- **Structured Data** –  
+  - `Product` schema  
+  - `BreadcrumbList`  
+  - `Organization` schema in footer  
+
+---
+
+## ⚡ Performance Optimizations
+
+- **Next.js optimizations** – Code splitting, prefetching  
+- **Image Optimization** – Using Next.js `<Image />` component  
+- **Data Caching** – React Query keeps network requests minimal  
+- **Lazy Loading** – Non-critical content loads on demand  
+- **Minimal Dependencies** – Fast load times and small bundles  
+
+---
+
+## ♿ Accessibility
+
+- Semantic tags and landmarks  
+- Sufficient color contrast  
+- ARIA attributes where applicable  
+- Keyboard and screen-reader friendly forms and buttons  
+- Mobile-first touch targets  
+
+---
+
+## ⚠️ Error Handling Strategy
+
+### General Resilience
+
+- Visual loading states  
+- Friendly error messages  
+- Empty cart illustrations  
+- Fallback UI components  
+
+### Specific Cases
+
+- **Product Fetch Failures** – Retry buttons + fallback to localStorage  
+- **Cart Edge Cases** – Prevent invalid quantities and handle missing items  
+- **404 Routes** – Custom not found page and redirects  
+- **Error Boundaries** – Global error handler with recovery UI  
+
+### Debug & Recovery
+
+- Console logs for dev visibility  
+- Zustand middleware validation  
+- Auto-recovery of cart state on reload  
+
+---
+
+## 🚀 Getting Started
+
+Install dependencies:
+
+```bash
+npm install
+```
+
+Run the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Run the test suite:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+npm test
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Build for production:
 
-## Learn More
+```bash
+npm run build
+```
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🔮 Future Enhancements
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- 🔍 Product search and filters  
+- 👤 User authentication  
+- ⭐ Product reviews  
+- 💾 Wishlist saving  
+- 🧾 Order history  
+- 🌓 Dark/light mode toggle  
+- 🎯 Cart animations  
+- 🌐 i18n for multi-language support
