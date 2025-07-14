@@ -33,7 +33,7 @@ export default function RootLayout({
             </CartProvider>
           </ThemeProvider>
         </QueryClientProvider>
-        <Toaster richColors />
+        <Toaster position="top-center" />
       </body>
     </html>
   );

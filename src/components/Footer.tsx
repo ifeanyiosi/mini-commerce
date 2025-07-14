@@ -34,7 +34,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="/products"
+                  href="#"
                   className="text-muted-foreground hover:text-primary transition-colors text-sm"
                 >
                   Products
@@ -65,7 +65,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="/returns"
+                  href="#"
                   className="text-muted-foreground hover:text-primary transition-colors text-sm"
                 >
                   Returns
@@ -133,13 +133,13 @@ export default function Footer() {
               </button>
 
               <Link
-                href="/privacy"
+                href="#"
                 className="text-muted-foreground hover:text-primary transition-colors text-sm"
               >
                 Privacy Policy
               </Link>
               <Link
-                href="/terms"
+                href="#"
                 className="text-muted-foreground hover:text-primary transition-colors text-sm"
               >
                 Terms of Service

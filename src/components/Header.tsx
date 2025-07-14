@@ -35,7 +35,7 @@ export default function Header() {
           {/* Navigation - Hidden on mobile, shown on larger screens */}
           <nav className="hidden md:flex items-center space-x-8">
             <Link
-              href="/products"
+              href="#"
               className="text-muted-foreground hover:text-primary transition-colors duration-300 font-medium"
             >
               Products

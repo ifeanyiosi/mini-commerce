@@ -5,11 +5,14 @@ import Image from "next/image";
 import AddToCartButton from "@/components/AddToCartButton";
 import Link from "next/link";
 
-export default async function ProductPage({
-  params,
-}: {
-  params: { slug: string };
-}) {
+// Define proper props interface
+interface ProductPageProps {
+  params: {
+    slug: string;
+  };
+}
+
+export default async function ProductPage({ params }: ProductPageProps) {
   const products = await fetchProducts();
   const product = products.find((p) => p.slug === params.slug);
 

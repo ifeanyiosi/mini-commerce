@@ -66,7 +66,7 @@ export default function Cart() {
             <p className="text-muted-foreground mb-8">
               Looks like you haven&apos;t added any sweet treats yet!
             </p>
-            <Link href="/products">
+            <Link href="/">
               <button className="inline-flex items-center gap-2 bg-gradient-to-r from-primary to-secondary text-primary-foreground px-8 py-3 rounded-full font-medium hover:scale-105 transition-transform duration-200 shadow-lg hover:shadow-xl">
                 Start Shopping
                 <ArrowRight className="w-4 h-4" />

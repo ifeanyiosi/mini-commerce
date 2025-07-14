@@ -32,11 +32,6 @@ export default function AddToCartButton({
       `${quantity > 1 ? `${quantity}x ` : ""}${name} added to cart!`,
       {
         duration: 3000,
-        style: {
-          background: "hsl(var(--primary))",
-          color: "hsl(var(--primary-foreground))",
-          border: "1px solid hsl(var(--primary))",
-        },
       }
     );
 
@@ -110,7 +105,7 @@ export default function AddToCartButton({
             </>
           ) : (
             <>
-            <BaggageClaim />
+              <BaggageClaim />
               <span>Add to Cart</span>
 
               {/* Subtle shine effect */}
