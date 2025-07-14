@@ -2,6 +2,16 @@ import Link from "next/link";
 import React from "react";
 import CartIcon from "./CartIcon";
 import { Button } from "./ui/button";
+import {
+  Sheet,
+  SheetContent,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+  SheetClose,
+} from "@/components/ui/sheet";
+import { Menu, X } from "lucide-react";
+import ThemeToggle from "./ThemeToggle";
 
 export default function Header() {
   return (
@@ -31,67 +41,92 @@ export default function Header() {
               Products
             </Link>
             <Link
-              href="/categories"
+              href="#"
               className="text-muted-foreground hover:text-primary transition-colors duration-300 font-medium"
             >
               Categories
             </Link>
-            <Link
-              href="/about"
-              className="text-muted-foreground hover:text-primary transition-colors duration-300 font-medium"
-            >
-              About
-            </Link>
+            {/* Theme Toggle for Desktop */}
+            <ThemeToggle />
           </nav>
 
-          {/* Cart Icon with enhanced styling */}
+          {/* Cart Icon and Mobile Menu */}
           <div className="flex items-center space-x-4">
             <div className="relative group">
               <div className="absolute -inset-2 bg-gradient-to-r from-primary/20 to-secondary/20 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               <CartIcon />
             </div>
 
-            {/* Mobile menu button */}
-            <Button className="md:hidden p-2 rounded-lg hover:bg-muted transition-colors duration-200">
-              <svg
-                className="w-6 h-6 text-foreground"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M4 6h16M4 12h16M4 18h16"
-                />
-              </svg>
-            </Button>
-          </div>
-        </div>
+            {/* Mobile menu button with Sheet component */}
+            <div className="md:hidden">
+              <Sheet>
+                <SheetTrigger asChild>
+                  <Button
+                    variant="outline"
+                    size="icon"
+                    className="rounded-full bg-transparent border-0 hover:bg-muted"
+                  >
+                    <Menu className="h-6 w-6" />
+                    <span className="sr-only">Open menu</span>
+                  </Button>
+                </SheetTrigger>
+                <SheetContent
+                  side="right"
+                  className="w-[300px] sm:w-[400px] flex flex-col justify-between"
+                >
+                  <div>
+                    <SheetHeader>
+                      <SheetTitle className="text-left">
+                        <div className="flex items-center space-x-2 pt-2">
+                          <div className="w-8 h-8 rounded-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center">
+                            <span className="text-primary-foreground font-bold text-sm">
+                              M
+                            </span>
+                          </div>
+                          <span className="text-lg font-bold">
+                            Mini-Commerce
+                          </span>
+                        </div>
+                      </SheetTitle>
+                    </SheetHeader>
 
-        {/* Mobile Navigation - You can expand this with state management */}
-        <div className="md:hidden border-t border-border/20 py-4 hidden">
-          <nav className="flex flex-col space-y-4">
-            <Link
-              href="/products"
-              className="text-muted-foreground hover:text-primary transition-colors duration-300 font-medium py-2"
-            >
-              Products
-            </Link>
-            <Link
-              href="/categories"
-              className="text-muted-foreground hover:text-primary transition-colors duration-300 font-medium py-2"
-            >
-              Categories
-            </Link>
-            <Link
-              href="/about"
-              className="text-muted-foreground hover:text-primary transition-colors duration-300 font-medium py-2"
-            >
-              About
-            </Link>
-          </nav>
+                    <nav className="flex flex-col px-4 space-y-6 mt-8">
+                      <SheetClose asChild>
+                        <Link
+                          href="/products"
+                          className="text-lg text-muted-foreground hover:text-primary transition-colors duration-300 font-medium py-2"
+                        >
+                          Products
+                        </Link>
+                      </SheetClose>
+                      <SheetClose asChild>
+                        <Link
+                          href="#"
+                          className="text-lg text-muted-foreground hover:text-primary transition-colors duration-300 font-medium py-2"
+                        >
+                          Categories
+                        </Link>
+                      </SheetClose>
+                    </nav>
+                  </div>
+
+                  {/* Theme toggle moved to the bottom with spacing and border */}
+                  <div className="border-t border-border mt-6 pt-4 px-4">
+                    <ThemeToggle />
+                  </div>
+
+                  <div className="absolute right-4 top-4 rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none">
+                    <SheetClose asChild>
+                      <Button variant="ghost" size="icon" className="h-8 w-8">
+                        <X className="h-5 w-5" />
+                        <span className="sr-only">Close</span>
+                      </Button>
+                    </SheetClose>
+                  </div>
+                </SheetContent>
+              </Sheet>
+            </div>
+          </div>
         </div>
       </div>
     </header>
