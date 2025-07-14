@@ -5,16 +5,19 @@ import Image from "next/image";
 import AddToCartButton from "@/components/AddToCartButton";
 import Link from "next/link";
 
-// Define proper props interface
+// Define proper props interface for Next.js 15
 interface ProductPageProps {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 }
 
 export default async function ProductPage({ params }: ProductPageProps) {
+  // Await the params in Next.js 15
+  const { slug } = await params;
+
   const products = await fetchProducts();
-  const product = products.find((p) => p.slug === params.slug);
+  const product = products.find((p) => p.slug === slug);
 
   if (!product) return notFound();
 
