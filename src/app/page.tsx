@@ -24,7 +24,20 @@ export default function Home() {
         </div>
       </div>
     );
-  if (isError) return <div>Error loading products</div>;
+
+  if (isError)
+    return (
+      <div className="container mx-auto p-4 min-h-screen flex items-center justify-center">
+        <div className="text-center">
+          <div className="text-red-500 text-2xl font-semibold mb-2">
+            ⚠️ Something went wrong
+          </div>
+          <p className="text-gray-500 dark:text-gray-400">
+            We couldn’t load the products. Please try again later.
+          </p>
+        </div>
+      </div>
+    );
 
   const totalPages = Math.ceil((products?.length || 0) / PRODUCTS_PER_PAGE);
   const paginatedProducts = products?.slice(
