@@ -175,6 +175,5 @@ npm run build
 - ⭐ Product reviews  
 - 💾 Wishlist saving  
 - 🧾 Order history  
-- 🌓 Dark/light mode toggle  
 - 🎯 Cart animations  
 - 🌐 i18n for multi-language support
