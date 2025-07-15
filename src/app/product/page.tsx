@@ -2,9 +2,12 @@
 "use client";
 import { useCartStore } from "@/lib/store";
 import { useProducts } from "@/hooks/useProducts";
-import { toast } from "sonner";
+import { useParams } from "next/navigation";
+import { showSuccessToast } from "@/lib/toastUtils";
+import Image from "next/image";
 
-export default function ProductDetail({ slug }: { slug: string }) {
+export default function ProductDetail() {
+  const { slug } = useParams() as { slug: string };
   const { data: products, isLoading, isError } = useProducts();
   const addItem = useCartStore((state) => state.addItem);
 
@@ -13,9 +16,7 @@ export default function ProductDetail({ slug }: { slug: string }) {
       <div className="min-h-screen bg-background flex items-center justify-center">
         <div className="text-center">
           <div className="w-16 h-16 border-4 border-primary border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
-          <p className="text-muted-foreground text-lg">
-            Loading amazing product...
-          </p>
+          <p className="text-muted-foreground text-lg">Loading product...</p>
         </div>
       </div>
     );
@@ -74,9 +75,7 @@ export default function ProductDetail({ slug }: { slug: string }) {
 
   const handleAddToCart = () => {
     addItem(product.id);
-    toast.success(`${product.name} added to cart!`, {
-      description: "Continue shopping or check your cart",
-    });
+    showSuccessToast(`${product.name} added to cart!`);
   };
 
   return (
@@ -90,7 +89,8 @@ export default function ProductDetail({ slug }: { slug: string }) {
             <div className="relative group">
               <div className="absolute -inset-4 bg-gradient-to-br from-primary/20 to-secondary/20 rounded-3xl blur-2xl opacity-50 group-hover:opacity-75 transition-opacity duration-500"></div>
               <div className="relative bg-card border border-border/20 rounded-3xl p-8 shadow-2xl hover:shadow-3xl transition-all duration-500 backdrop-blur-sm">
-                <img
+                <Image
+                  fill
                   src={product.image}
                   alt={product.name}
                   className="w-full h-auto rounded-2xl shadow-lg hover:scale-105 transition-transform duration-700"

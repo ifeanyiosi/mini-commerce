@@ -2,14 +2,15 @@
 import Link from "next/link";
 import { Product } from "@/app/types";
 import { useCartStore } from "@/lib/store";
-import { toast } from "sonner";
+import { showSuccessToast } from "@/lib/toastUtils";
+import Image from "next/image";
 
 export default function ProductCard({ product }: { product: Product }) {
   const addItem = useCartStore((state) => state.addItem);
 
   const handleAddToCart = () => {
     addItem(product.id);
-    toast.success(`${product.name} added to cart!`);
+    showSuccessToast(`${product.name} added to cart!`);
   };
 
   return (
@@ -25,7 +26,9 @@ export default function ProductCard({ product }: { product: Product }) {
       <Link href={`/product/${product.slug}`} className="block">
         {/* Image container with overlay effects */}
         <div className="relative overflow-hidden">
-          <img
+          <Image
+            height={224}
+            width={300}
             src={product.image}
             alt={product.name}
             className="w-full h-56 object-cover transition-transform duration-700 group-hover:scale-110"

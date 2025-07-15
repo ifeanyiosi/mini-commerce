@@ -50,7 +50,7 @@
   --radius: 0.5rem;
 
   --background: oklch(0.96 0.005 180); /* Soft neutral white */
-  --foreground: oklch(0.2 0.01 200);   /* Deep charcoal */
+  --foreground: oklch(0.2 0.01 200); /* Deep charcoal */
 
   --card: oklch(0.98 0.003 180);
   --card-foreground: oklch(0.2 0.01 200);
@@ -75,11 +75,11 @@
   --input: oklch(0.96 0.005 180);
   --ring: oklch(0.45 0.08 240);
 
-  --chart-1: oklch(0.55 0.12 260);  /* Deep purple */
-  --chart-2: oklch(0.6 0.1 200);    /* Steel blue */
-  --chart-3: oklch(0.65 0.08 160);  /* Sage green */
-  --chart-4: oklch(0.7 0.12 40);    /* Warm brown */
-  --chart-5: oklch(0.58 0.1 300);   /* Plum */
+  --chart-1: oklch(0.55 0.12 260); /* Deep purple */
+  --chart-2: oklch(0.6 0.1 200); /* Steel blue */
+  --chart-3: oklch(0.65 0.08 160); /* Sage green */
+  --chart-4: oklch(0.7 0.12 40); /* Warm brown */
+  --chart-5: oklch(0.58 0.1 300); /* Plum */
 
   --sidebar: oklch(0.94 0.005 180);
   --sidebar-foreground: oklch(0.2 0.01 200);
@@ -89,6 +89,13 @@
   --sidebar-accent-foreground: oklch(0.2 0.01 200);
   --sidebar-border: oklch(0.88 0.01 180);
   --sidebar-ring: oklch(0.45 0.08 240);
+
+  --toast-success-bg: #d1fae5;
+  --toast-success-text: #065f46;
+  --toast-error-bg: #fee2e2;
+  --toast-error-text: #b91c1c;
+  --toast-warning-bg: #fef3c7;
+  --toast-warning-text: #b45309;
 }
 
 /* Dark Mode Mature Colors */
@@ -133,6 +140,32 @@
   --sidebar-accent-foreground: oklch(0.92 0.005 180);
   --sidebar-border: oklch(0.25 0.01 240);
   --sidebar-ring: oklch(0.65 0.12 240);
+
+  --toast-success-bg: #065f46;
+  --toast-success-text: #d1fae5;
+  --toast-error-bg: #7f1d1d;
+  --toast-error-text: #fecaca;
+  --toast-warning-bg: #78350f;
+  --toast-warning-text: #fef3c7;
+}
+
+/* Toast Styles */
+.toast-success {
+  background-color: var(--toast-success-bg) !important;
+  color: var(--toast-success-text) !important;
+  border-color: var(--toast-success-text);
+}
+
+.toast-error {
+  background-color: var(--toast-error-bg) !important;
+  color: var(--toast-error-text) !important;
+  border-color: var(--toast-error-text);
+}
+
+.toast-warning {
+  background-color: var(--toast-warning-bg) !important;
+  color: var(--toast-warning-text) !important;
+  border-color: var(--toast-warning-text);
 }
 
 /* Tailwind Base Layer */

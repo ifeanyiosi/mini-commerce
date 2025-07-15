@@ -1,19 +1,14 @@
-// File: src/app/product/[slug]/AddToCartButton.tsx
+// File: src/components/cart/AddToCartButton.tsx
 "use client";
 
 import { useCartStore } from "@/lib/store";
-import { toast } from "sonner";
 import { useState } from "react";
-import { Button } from "./ui/button";
+import { Button } from "@/components/ui/button";
 import { BaggageClaim } from "lucide-react";
+import { Product } from "@/app/types";
+import { showSuccessToast } from "@/lib/toastUtils";
 
-export default function AddToCartButton({
-  productId,
-  name,
-}: {
-  productId: number;
-  name: string;
-}) {
+export default function AddToCartButton({ product }: { product: Product }) {
   const addItem = useCartStore((state) => state.addItem);
   const [isLoading, setIsLoading] = useState(false);
   const [quantity, setQuantity] = useState(1);
@@ -21,19 +16,14 @@ export default function AddToCartButton({
   const handleClick = async () => {
     setIsLoading(true);
 
-    // Simulate a brief loading state for better UX
+    // Simulates a brief loading state for better UX
     await new Promise((resolve) => setTimeout(resolve, 300));
 
     for (let i = 0; i < quantity; i++) {
-      addItem(productId);
+      addItem(product.id);
     }
 
-    toast.success(
-      `${quantity > 1 ? `${quantity}x ` : ""}${name} added to cart!`,
-      {
-        duration: 3000,
-      }
-    );
+    showSuccessToast("Item added to cart!");
 
     setIsLoading(false);
   };

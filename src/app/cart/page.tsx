@@ -6,6 +6,7 @@ import { useCartStore, cartSubtotal } from "@/lib/store";
 import Link from "next/link";
 import { Minus, Plus, X, ShoppingBag, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import Image from "next/image";
 
 export default function Cart() {
   const { data: products, isLoading, isError } = useProducts();
@@ -88,7 +89,9 @@ export default function Cart() {
                       <div className="flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-6">
                         {/* Product Image */}
                         <div className="flex-shrink-0 self-center">
-                          <img
+                          <Image
+                            width={100}
+                            height={100}
                             src={product.image}
                             alt={product.name}
                             className="w-24 h-24 object-cover rounded-xl shadow-sm group-hover:scale-105 transition-transform duration-200"
