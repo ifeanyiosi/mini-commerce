@@ -7,6 +7,7 @@ import { Toaster } from "sonner";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { ThemeProvider } from "@/context/ThemeContext";
+import { Analytics } from "@vercel/analytics/next";
 
 const queryClient = new QueryClient();
 
@@ -33,6 +34,7 @@ export default function RootLayout({
             </CartProvider>
           </ThemeProvider>
         </QueryClientProvider>
+        <Analytics />
         <Toaster position="top-center" />
       </body>
     </html>
