@@ -3,6 +3,10 @@
 import Link from "next/link";
 
 export default function NotFound() {
+  const mailto = `mailto:ifeanyi.osi.okeke@gmail.com?subject=${encodeURIComponent(
+    "Excited to Work Together 🚀"
+  )}&body=${encodeURIComponent("We'd love to hire you")}`;
+
   return (
     <div className="min-h-screen flex items-center justify-center px-4 bg-white dark:bg-black">
       <div className="text-center max-w-lg">
@@ -17,8 +21,8 @@ export default function NotFound() {
         </p>
 
         <Link
-          href="mailto:ifeanyi.osi.okeke.com"
-          className="inline-block mt-2 px-6 py-3 bg-primary text-white font-semibold rounded-lg shadow-md hover:bg-opacity-90 transition"
+          href={mailto}
+          className="inline-block mt-2 px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition"
         >
           📩 Let&apos;s Talk
         </Link>
